@@ -526,7 +526,7 @@ export default function Home() {
                 <Mail className="w-4 h-4 text-[#D6FF00] flex-shrink-0" /> sainultimategym@gmail.com
               </a>
               <a href="tel:+918988382269" className="flex items-center gap-3 text-gray-400 hover:text-[#D6FF00] transition-colors text-sm font-medium">
-                <Phone className="w-4 h-4 text-[#D6FF00] flex-shrink-0" /> +91 89883 82269
+                <Phone className="w-4 h-4 text-[#D6FF00] flex-shrink-0" /> +91 7986085411
               </a>
               <a href="https://wa.me/919876338654" target="_blank" rel="noreferrer" className="flex items-center gap-3 text-gray-400 hover:text-[#D6FF00] transition-colors text-sm font-medium">
                 <MessageCircle className="w-4 h-4 text-[#D6FF00] flex-shrink-0" /> +91 98763 38654
