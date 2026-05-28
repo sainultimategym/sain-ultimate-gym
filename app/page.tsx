@@ -352,7 +352,7 @@ export default function Home() {
           {/* Smart Container: Hidden on mobile by default, always visible on desktop */}
           <div className={`space-y-4 font-medium text-gray-600 transition-all duration-500 overflow-hidden ${isFounderExpanded ? "max-h-[1000px] opacity-100 mb-6" : "max-h-0 opacity-0 mb-0 md:max-h-[1000px] md:opacity-100 md:mb-8"}`}>
             <p>
-              Hi, I'm <strong className="text-black">Neeraj Sain</strong>. My fitness journey began with a deep passion for volleyball during my schooling at Govt. Sr. Sec. School Jharclinets and while completing my BBA at Vidya Jyoti Eduversity. What started as a sport evolved into a lifelong dedication to the science of physical transformation.
+              Hi, I'm <strong className="text-black">Neeraj Sain</strong>. I come from the small village of Jharshali in Shimla. My fitness journey began with a deep passion for volleyball during my schooling at Govt. Sr. Sec. School Giltari and while completing my BBA at Vidya Jyoti Eduversity (Punjab Technical University). What started as a sport evolved into a lifelong dedication to the science of physical transformation.
             </p>
             <p>
               With over <strong>6 years in the fitness industry</strong>, I've had the privilege of guiding <strong>1,600+ general training clients</strong> and delivering life-changing results to <strong>120+ personal training clients</strong>.
