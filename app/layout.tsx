@@ -6,9 +6,12 @@ import "./globals.css";
 const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-space" });
 const syncopate = Syncopate({ weight: ["400", "700"], subsets: ["latin"], variable: "--font-syncopate" });
 
-export const metadata: Metadata = {
+export const metadata = {
   title: "Sain Ultimate Gym | Sawra",
-  description: "Judge no one, just improve yourself. Premium fitness center in Sawra, HP.",
+  description: "Judge no one. Just improve. Premium fitness facility in Sawra, HP.",
+  icons: {
+    icon: "/logo2.png",
+  },
 };
 
 export default function RootLayout({
