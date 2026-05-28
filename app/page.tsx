@@ -8,6 +8,7 @@ export default function Home() {
   const [selectedCert, setSelectedCert] = useState<string | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
 
   const gymPhotos = [
     "/gymphoto1.jpeg",
@@ -48,7 +49,7 @@ export default function Home() {
             {/* Top bar */}
             <div className="flex justify-between items-center px-6 md:px-12 py-5 border-b border-white/10 flex-shrink-0">
               <div className="flex items-center gap-3">
-                <img src="/logo2.jng" alt="Logo" className="w-9 h-9 border-2 border-[#D6FF00] object-cover" />
+                <img src="/logo2.png" alt="Logo" className="w-9 h-9 border-2 border-[#D6FF00] object-cover" />
                 <span className="text-white font-syncopate font-bold uppercase tracking-tighter text-base">SAIN ULTIMATE</span>
               </div>
               <button
@@ -152,7 +153,7 @@ export default function Home() {
             className="flex items-center gap-2 font-bold uppercase text-xs md:text-sm border-2 border-black px-3 py-2 bg-[#D6FF00] hover:bg-black hover:text-[#D6FF00] transition-colors duration-200"
           >
             <Menu className="w-4 h-4" />
-            <span>SAWRA,HP</span>
+            <span>SAWRA</span>
           </motion.button>
         </nav>
 
@@ -184,16 +185,27 @@ export default function Home() {
             </motion.div>
           </div>
 
+{/* --- INTERACTIVE HERO MEDIA (Mobile & Desktop Friendly) --- */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="w-full lg:w-2/5 min-h-[400px] lg:min-h-full relative overflow-hidden bg-black group cursor-pointer"
-            onMouseEnter={() => videoRef.current?.play()}
-            onMouseLeave={() => videoRef.current?.pause()}
+            className="w-full lg:w-2/5 min-h-[400px] lg:min-h-full relative overflow-hidden bg-black cursor-pointer"
+            onMouseEnter={() => { videoRef.current?.play(); setIsVideoPlaying(true); }}
+            onMouseLeave={() => { videoRef.current?.pause(); setIsVideoPlaying(false); }}
+            onClick={() => {
+              if (videoRef.current?.paused) {
+                videoRef.current?.play();
+                setIsVideoPlaying(true);
+              } else {
+                videoRef.current?.pause();
+                setIsVideoPlaying(false);
+              }
+            }}
           >
+            {/* The Static Photo (Fades out when isVideoPlaying is true) */}
             <div
-              className="absolute inset-0 z-10 transition-opacity duration-500 ease-in-out group-hover:opacity-0"
+              className={`absolute inset-0 z-10 transition-opacity duration-500 ease-in-out ${isVideoPlaying ? 'opacity-0' : 'opacity-100'}`}
               style={{
                 backgroundImage: "url('https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=1470&auto=format&fit=crop')",
                 backgroundSize: "cover",
@@ -201,17 +213,21 @@ export default function Home() {
                 filter: "grayscale(100%) contrast(120%)"
               }}
             />
+            
             <video
               ref={videoRef}
               loop
               muted
               playsInline
-              className="absolute inset-0 z-0 w-full h-full object-cover grayscale contrast-125 transition-transform duration-1000 group-hover:scale-105"
+              className={`absolute inset-0 z-0 w-full h-full object-cover grayscale transition-transform duration-1000 ${isVideoPlaying ? 'scale-105' : 'scale-100'}`}
             >
               <source src="/workout.mp4" type="video/mp4" />
             </video>
-            <div className="absolute bottom-4 right-4 z-20 bg-[#D6FF00] text-black px-3 py-1 font-syncopate font-bold uppercase text-[10px] tracking-widest border-2 border-black opacity-100 group-hover:opacity-0 transition-opacity duration-300 shadow-[2px_2px_0px_rgba(0,0,0,1)]">
-              Hover to Play
+            
+            {/* Brutalist Interaction Badge - Smart Text for Mobile/Desktop */}
+            <div className={`absolute bottom-4 right-4 z-20 bg-[#D6FF00] text-black px-3 py-1 font-syncopate font-bold uppercase text-[10px] tracking-widest border-2 border-black transition-opacity duration-300 shadow-[2px_2px_0px_rgba(0,0,0,1)] ${isVideoPlaying ? 'opacity-0' : 'opacity-100'}`}>
+              <span className="hidden md:inline">Hover to Play</span>
+              <span className="inline md:hidden">Tap to Play</span>
             </div>
           </motion.div>
         </main>
@@ -245,7 +261,7 @@ export default function Home() {
                 <img
                   src={photo}
                   alt={`Gym Photo ${index}`}
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 hover:scale-110"
+                  className="w-full h-full object-cover grayscale transition-all duration-500 md:hover:grayscale-0 active:grayscale-0 md:hover:scale-110 active:scale-110"
                 />
               </div>
             ))}
