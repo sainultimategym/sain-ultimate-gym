@@ -2,13 +2,14 @@
 
 import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, MessageCircle, Dumbbell, Zap, Target, ShieldCheck, MapPin, Clock, Quote, Award, X, Maximize2, Menu, Mail, Phone } from "lucide-react";
+import { ArrowRight, MessageCircle, Dumbbell, Zap, Target, ShieldCheck, MapPin, Clock, Quote, Award, X, Maximize2, Menu, Mail, Phone, ChevronDown, ChevronUp } from "lucide-react";
 
 export default function Home() {
   const [selectedCert, setSelectedCert] = useState<string | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+  const [isFounderExpanded, setIsFounderExpanded] = useState(false);
 
   const gymPhotos = [
     "/gymphoto1.jpeg",
@@ -49,7 +50,7 @@ export default function Home() {
             {/* Top bar */}
             <div className="flex justify-between items-center px-6 md:px-12 py-5 border-b border-white/10 flex-shrink-0">
               <div className="flex items-center gap-3">
-                <img src="/logo2.png" alt="Logo" className="w-9 h-9 border-2 border-[#D6FF00] object-cover" />
+                <img src="/logo2.png" alt="Logo" className="w-9 h-9 border-2 border-[#D6FF00] object-cover bg-white" />
                 <span className="text-white font-syncopate font-bold uppercase tracking-tighter text-base">SAIN ULTIMATE</span>
               </div>
               <button
@@ -185,7 +186,7 @@ export default function Home() {
             </motion.div>
           </div>
 
-{/* --- INTERACTIVE HERO MEDIA (Mobile & Desktop Friendly) --- */}
+          {/* --- INTERACTIVE HERO MEDIA (Mobile & Desktop Friendly) --- */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -261,7 +262,7 @@ export default function Home() {
                 <img
                   src={photo}
                   alt={`Gym Photo ${index}`}
-                  className="w-full h-full object-cover grayscale transition-all duration-500 md:hover:grayscale-0 active:grayscale-0 md:hover:scale-110 active:scale-110"
+                  className="w-full h-full object-cover grayscale-0 transition-all duration-500 md:grayscale md:group-hover:grayscale-0 md:group-hover:scale-110"
                 />
               </div>
             ))}
@@ -297,7 +298,7 @@ export default function Home() {
             <h3 className="text-lg md:text-xl font-syncopate font-bold uppercase mb-2 tracking-wide">Machines</h3>
             <p className="text-sm md:text-base font-medium text-gray-700 group-hover:text-gray-300">Precision cable setups and isolation machines to sculpt every muscle.</p>
           </div>
-          <div className="p-6 md:p-8 sm:border-r-4 border-black hover:bg-black hover:text-[#D6FF00] transition-colors duration-300 group">
+          <div className="p-6 md:p-8 border-b-4 sm:border-b-0 sm:border-r-4 border-black hover:bg-black hover:text-[#D6FF00] transition-colors duration-300 group">
             <Target className="w-8 h-8 md:w-10 md:h-10 mb-4 md:mb-6 text-black group-hover:text-[#D6FF00] transition-colors" />
             <h3 className="text-lg md:text-xl font-syncopate font-bold uppercase mb-2 tracking-wide">Cardio Zone</h3>
             <p className="text-sm md:text-base font-medium text-gray-700 group-hover:text-gray-300">Treadmills and stamina equipment to get your endurance up.</p>
@@ -347,7 +348,9 @@ export default function Home() {
               "My drive started on the volleyball court. Today, it's about pushing over 1,700 people past their physical limits."
             </p>
           </div>
-          <div className="space-y-4 font-medium text-gray-600 mb-8">
+          
+          {/* Smart Container: Hidden on mobile by default, always visible on desktop */}
+          <div className={`space-y-4 font-medium text-gray-600 transition-all duration-500 overflow-hidden ${isFounderExpanded ? "max-h-[1000px] opacity-100 mb-6" : "max-h-0 opacity-0 mb-0 md:max-h-[1000px] md:opacity-100 md:mb-8"}`}>
             <p>
               Hi, I'm <strong className="text-black">Neeraj Sain</strong>. My fitness journey began with a deep passion for volleyball during my schooling at Govt. Sr. Sec. School Jharclinets and while completing my BBA at Vidya Jyoti Eduversity. What started as a sport evolved into a lifelong dedication to the science of physical transformation.
             </p>
@@ -355,6 +358,16 @@ export default function Home() {
               With over <strong>6 years in the fitness industry</strong>, I've had the privilege of guiding <strong>1,600+ general training clients</strong> and delivering life-changing results to <strong>120+ personal training clients</strong>.
             </p>
           </div>
+
+          {/* Toggle Button: Only visible on mobile screens */}
+          <button 
+            onClick={() => setIsFounderExpanded(!isFounderExpanded)}
+            className="md:hidden flex items-center gap-2 text-xs font-syncopate font-bold uppercase tracking-widest border-2 border-black px-4 py-3 mb-8 hover:bg-[#D6FF00] transition-colors w-fit"
+          >
+            {isFounderExpanded ? "Show Less" : "Read Full Story"}
+            {isFounderExpanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+          </button>
+
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 border-t-2 border-black/10 pt-6">
             <div onClick={() => setSelectedCert('/cert1.jpeg')} className="border-2 border-black p-3 flex flex-col justify-center hover:bg-black hover:text-white transition-colors cursor-pointer group relative">
               <Maximize2 className="absolute top-2 right-2 w-4 h-4 opacity-50 group-hover:opacity-100 transition-opacity text-white" />
