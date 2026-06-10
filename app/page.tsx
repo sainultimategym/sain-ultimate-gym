@@ -354,7 +354,7 @@ export default function Home() {
           <div className="border-l-4 border-[#D6FF00] pl-6 mb-8 relative">
             <Quote className="absolute -left-5 -top-4 w-8 h-8 text-[#D6FF00] bg-white" />
             <p className="text-lg md:text-xl font-medium leading-relaxed text-gray-800">
-              "My drive started on the volleyball court. Today, it's about pushing over 1,700 people past their physical limits."
+              "My drive started on the volleyball court. Today, it's about pushing over 3,400 people past their physical limits."
             </p>
           </div>
           
@@ -364,7 +364,7 @@ export default function Home() {
               Hi, I'm <strong className="text-black">Neeraj Sain</strong>. I come from the small village of Jharshali in Shimla. My fitness journey began with a deep passion for volleyball during my schooling at Govt. Sr. Sec. School Giltari and while completing my BBA at Vidya Jyoti Eduversity (Punjab Technical University). What started as a sport evolved into a lifelong dedication to the science of physical transformation.
             </p>
             <p>
-              With over <strong>6 years in the fitness industry</strong>, I've had the privilege of guiding <strong>1,600+ general training clients</strong> and delivering life-changing results to <strong>120+ personal training clients</strong>.
+              With over <strong>6 years in the fitness industry</strong>, I've had the privilege of guiding <strong>3,400+ general training clients</strong> and delivering life-changing results to <strong>120+ personal training clients</strong>.
             </p>
           </div>
 
