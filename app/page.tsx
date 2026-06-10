@@ -417,17 +417,18 @@ export default function Home() {
           <div className="border-b-4 md:border-b-0 md:border-r-4 border-black group cursor-pointer flex flex-col" onClick={() => toggleFlip('harshit')}>
             <div className="h-[350px] md:h-[400px] border-b-4 border-black relative bg-black overflow-hidden">
               {/* Before Image */}
-              <img src="/harshit-before.jpeg" alt="Harshit Before" className={`absolute inset-0 w-full h-full object-cover object-center grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105 ${flippedCards.harshit ? 'opacity-0' : 'opacity-100 z-10'}`} />
+              <img src="/harshit-before.jpeg" alt="Harshit Before" className={`absolute inset-0 w-full h-full object-cover object-center grayscale-0 md:grayscale transition-all duration-700 md:group-hover:grayscale-0 ${flippedCards.harshit ? 'opacity-0' : 'opacity-100 z-10'}`} />
               {/* After Image */}
-              <img src="/harshit-after.jpeg" alt="Harshit After" className={`absolute inset-0 w-full h-full object-cover object-center grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105 ${flippedCards.harshit ? 'opacity-100 z-10' : 'opacity-0'}`} />
+              <img src="/harshit-after.jpeg" alt="Harshit After" className={`absolute inset-0 w-full h-full object-cover object-center grayscale-0 md:grayscale transition-all duration-700 md:group-hover:grayscale-0 ${flippedCards.harshit ? 'opacity-100 z-10' : 'opacity-0'}`} />
               
+              {/* Stat Badge */}
               <div className="absolute top-4 right-4 bg-[#D6FF00] text-black font-syncopate font-bold text-[10px] px-3 py-1 uppercase tracking-widest border-2 border-black z-20 shadow-[2px_2px_0px_rgba(0,0,0,1)]">
                 -25 KG
               </div>
               
               {/* Smart Interaction Badge */}
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black text-white font-syncopate font-bold text-[10px] px-4 py-2 uppercase tracking-widest border-2 border-black z-20 whitespace-nowrap shadow-[4px_4px_0px_rgba(214,255,0,1)] group-hover:bg-[#D6FF00] group-hover:text-black transition-colors duration-300">
-                {flippedCards.harshit ? "AFTER ↺ TAP TO REVERT" : "BEFORE ➔ TAP TO TRANSFORM"}
+              <div className="absolute top-4 left-4 bg-black text-white font-syncopate font-bold text-[8px] md:text-[10px] px-3 py-1 uppercase tracking-widest border-2 border-black z-20 whitespace-nowrap shadow-[4px_4px_0px_rgba(214,255,0,1)] group-hover:bg-[#D6FF00] group-hover:text-black transition-colors duration-300">
+                {flippedCards.harshit ? "AFTER ↺ REVERT" : "BEFORE ➔ CLICK"}
               </div>
             </div>
             <div className="p-6 md:p-8 bg-white group-hover:bg-black group-hover:text-white transition-colors duration-300 flex flex-col flex-grow">
@@ -448,17 +449,18 @@ export default function Home() {
           <div className="border-b-4 md:border-b-0 md:border-r-4 border-black group cursor-pointer flex flex-col" onClick={() => toggleFlip('amit')}>
             <div className="h-[350px] md:h-[400px] border-b-4 border-black relative bg-black overflow-hidden">
               {/* Before Image */}
-              <img src="/amit-before.jpeg" alt="Amit Before" className={`absolute inset-0 w-full h-full object-cover object-top grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105 ${flippedCards.amit ? 'opacity-0' : 'opacity-100 z-10'}`} />
+              <img src="/amit-before.jpeg" alt="Amit Before" className={`absolute inset-0 w-full h-full object-cover object-center grayscale-0 md:grayscale transition-all duration-700 md:group-hover:grayscale-0 ${flippedCards.amit ? 'opacity-0' : 'opacity-100 z-10'}`} />
               {/* After Image */}
-              <img src="/amit-after.jpeg" alt="Amit After" className={`absolute inset-0 w-full h-full object-cover object-bottom grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105 ${flippedCards.amit ? 'opacity-100 z-10' : 'opacity-0'}`} />
+              <img src="/amit-after.jpeg" alt="Amit After" className={`absolute inset-0 w-full h-full object-cover object-center grayscale-0 md:grayscale transition-all duration-700 md:group-hover:grayscale-0 ${flippedCards.amit ? 'opacity-100 z-10' : 'opacity-0'}`} />
               
+              {/* Stat Badge */}
               <div className="absolute top-4 right-4 bg-[#D6FF00] text-black font-syncopate font-bold text-[10px] px-3 py-1 uppercase tracking-widest border-2 border-black z-20 shadow-[2px_2px_0px_rgba(0,0,0,1)]">
                 STRENGTH
               </div>
 
               {/* Smart Interaction Badge */}
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black text-white font-syncopate font-bold text-[10px] px-4 py-2 uppercase tracking-widest border-2 border-black z-20 whitespace-nowrap shadow-[4px_4px_0px_rgba(214,255,0,1)] group-hover:bg-[#D6FF00] group-hover:text-black transition-colors duration-300">
-                {flippedCards.amit ? "AFTER ↺ TAP TO REVERT" : "BEFORE ➔ TAP TO TRANSFORM"}
+              <div className="absolute top-4 left-4 bg-black text-white font-syncopate font-bold text-[8px] md:text-[10px] px-3 py-1 uppercase tracking-widest border-2 border-black z-20 whitespace-nowrap shadow-[4px_4px_0px_rgba(214,255,0,1)] group-hover:bg-[#D6FF00] group-hover:text-black transition-colors duration-300">
+                {flippedCards.amit ? "AFTER ↺ REVERT" : "BEFORE ➔ CLICK"}
               </div>
             </div>
             <div className="p-6 md:p-8 bg-white group-hover:bg-black group-hover:text-white transition-colors duration-300 flex flex-col flex-grow">
@@ -479,17 +481,18 @@ export default function Home() {
           <div className="group cursor-pointer flex flex-col" onClick={() => toggleFlip('rishi')}>
             <div className="h-[350px] md:h-[400px] border-b-4 border-black relative bg-black overflow-hidden">
               {/* Before Image */}
-              <img src="/rishi-before.jpeg" alt="Rishi Before" className={`absolute inset-0 w-full h-full object-cover object-center grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105 ${flippedCards.rishi ? 'opacity-0' : 'opacity-100 z-10'}`} />
+              <img src="/rishi-before.jpeg" alt="Rishi Before" className={`absolute inset-0 w-full h-full object-cover object-center grayscale-0 md:grayscale transition-all duration-700 md:group-hover:grayscale-0 ${flippedCards.rishi ? 'opacity-0' : 'opacity-100 z-10'}`} />
               {/* After Image */}
-              <img src="/rishi-after1.jpeg" alt="Rishi After" className={`absolute inset-0 w-full h-full object-cover object-top grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105 ${flippedCards.rishi ? 'opacity-100 z-10' : 'opacity-0'}`} />
+              <img src="/rishi-after.jpeg" alt="Rishi After" className={`absolute inset-0 w-full h-full object-cover object-center grayscale-0 md:grayscale transition-all duration-700 md:group-hover:grayscale-0 ${flippedCards.rishi ? 'opacity-100 z-10' : 'opacity-0'}`} />
               
+              {/* Stat Badge */}
               <div className="absolute top-4 right-4 bg-[#D6FF00] text-black font-syncopate font-bold text-[10px] px-3 py-1 uppercase tracking-widest border-2 border-black z-20 shadow-[2px_2px_0px_rgba(0,0,0,1)]">
                 +12 KG
               </div>
 
               {/* Smart Interaction Badge */}
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black text-white font-syncopate font-bold text-[10px] px-4 py-2 uppercase tracking-widest border-2 border-black z-20 whitespace-nowrap shadow-[4px_4px_0px_rgba(214,255,0,1)] group-hover:bg-[#D6FF00] group-hover:text-black transition-colors duration-300">
-                {flippedCards.rishi ? "AFTER ↺ TAP TO REVERT" : "BEFORE ➔ TAP TO TRANSFORM"}
+              <div className="absolute top-4 left-4 bg-black text-white font-syncopate font-bold text-[8px] md:text-[10px] px-3 py-1 uppercase tracking-widest border-2 border-black z-20 whitespace-nowrap shadow-[4px_4px_0px_rgba(214,255,0,1)] group-hover:bg-[#D6FF00] group-hover:text-black transition-colors duration-300">
+                {flippedCards.rishi ? "AFTER ↺ REVERT" : "BEFORE ➔ CLICK"}
               </div>
             </div>
             <div className="p-6 md:p-8 bg-white group-hover:bg-black group-hover:text-white transition-colors duration-300 flex flex-col flex-grow">
@@ -507,7 +510,7 @@ export default function Home() {
           </div>
         </div>
       </motion.div>
-
+      
       {/* 5. PRICING */}
       <motion.div
         id="pricing"
