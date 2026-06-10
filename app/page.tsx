@@ -10,6 +10,15 @@ export default function Home() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const [isFounderExpanded, setIsFounderExpanded] = useState(false);
+  const [flippedCards, setFlippedCards] = useState<Record<string, boolean>>({
+    harshit: false,
+    amit: false,
+    rishi: false,
+  });
+
+  const toggleFlip = (person: string) => {
+    setFlippedCards((prev) => ({ ...prev, [person]: !prev[person] }));
+  };
 
   const gymPhotos = [
     "/gymphoto1.jpeg",
@@ -383,6 +392,117 @@ export default function Home() {
               <Maximize2 className="absolute top-2 right-2 w-4 h-4 opacity-50 group-hover:opacity-100 transition-opacity" />
               <span className="font-syncopate font-bold uppercase text-sm">Skill India Certified</span>
               <span className="text-xs font-bold uppercase mt-1 opacity-80">Ministry of Sports Council</span>
+            </div>
+          </div>
+        </div>
+      </motion.div>
+{/* 4.5 REAL RESULTS (TRANSFORMATIONS) */}
+      <motion.div
+        id="transformations"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.7 }}
+        className="border-4 border-black bg-white shadow-[8px_8px_0px_rgba(0,0,0,1)]"
+      >
+        <div className="border-b-4 border-black p-8 md:p-12 bg-[#D6FF00]">
+          <h2 className="text-4xl md:text-7xl font-syncopate font-bold uppercase tracking-tighter text-black leading-none">
+            REAL <br />RESULTS.
+          </h2>
+          <p className="mt-4 font-bold uppercase tracking-widest text-xs text-black/60">The proof is in the work.</p>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3">
+          {/* Harshit */}
+          <div className="border-b-4 md:border-b-0 md:border-r-4 border-black group cursor-pointer flex flex-col" onClick={() => toggleFlip('harshit')}>
+            <div className="h-[350px] md:h-[400px] border-b-4 border-black relative bg-black overflow-hidden">
+              {/* Before Image */}
+              <img src="/harshit-before.jpeg" alt="Harshit Before" className={`absolute inset-0 w-full h-full object-cover object-center grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105 ${flippedCards.harshit ? 'opacity-0' : 'opacity-100 z-10'}`} />
+              {/* After Image */}
+              <img src="/harshit-after.jpeg" alt="Harshit After" className={`absolute inset-0 w-full h-full object-cover object-center grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105 ${flippedCards.harshit ? 'opacity-100 z-10' : 'opacity-0'}`} />
+              
+              <div className="absolute top-4 right-4 bg-[#D6FF00] text-black font-syncopate font-bold text-[10px] px-3 py-1 uppercase tracking-widest border-2 border-black z-20 shadow-[2px_2px_0px_rgba(0,0,0,1)]">
+                -25 KG
+              </div>
+              
+              {/* Smart Interaction Badge */}
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black text-white font-syncopate font-bold text-[10px] px-4 py-2 uppercase tracking-widest border-2 border-black z-20 whitespace-nowrap shadow-[4px_4px_0px_rgba(214,255,0,1)] group-hover:bg-[#D6FF00] group-hover:text-black transition-colors duration-300">
+                {flippedCards.harshit ? "AFTER ↺ TAP TO REVERT" : "BEFORE ➔ TAP TO TRANSFORM"}
+              </div>
+            </div>
+            <div className="p-6 md:p-8 bg-white group-hover:bg-black group-hover:text-white transition-colors duration-300 flex flex-col flex-grow">
+              <Quote className="w-6 h-6 text-[#D6FF00] mb-4" />
+              <p className="text-sm font-medium mb-6 flex-grow">"Dropped 25 kilos and completely changed my life. The environment here pushes you to be your absolute best, zero excuses."</p>
+              <div className="mt-auto border-t-2 border-black/10 group-hover:border-white/10 pt-4">
+                <div className="flex justify-between font-syncopate font-bold uppercase text-xs mb-2">
+                  <span className="text-gray-400 group-hover:text-gray-500">Before: 115kg</span>
+                  <span className="text-[#D6FF00]">After: 90kg</span>
+                </div>
+                <h3 className="font-bold uppercase tracking-widest text-sm">— Harshit Yari</h3>
+                <p className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mt-1">Sawra, Shimla</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Amit */}
+          <div className="border-b-4 md:border-b-0 md:border-r-4 border-black group cursor-pointer flex flex-col" onClick={() => toggleFlip('amit')}>
+            <div className="h-[350px] md:h-[400px] border-b-4 border-black relative bg-black overflow-hidden">
+              {/* Before Image */}
+              <img src="/amit-before.jpeg" alt="Amit Before" className={`absolute inset-0 w-full h-full object-cover object-top grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105 ${flippedCards.amit ? 'opacity-0' : 'opacity-100 z-10'}`} />
+              {/* After Image */}
+              <img src="/amit-after.jpeg" alt="Amit After" className={`absolute inset-0 w-full h-full object-cover object-bottom grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105 ${flippedCards.amit ? 'opacity-100 z-10' : 'opacity-0'}`} />
+              
+              <div className="absolute top-4 right-4 bg-[#D6FF00] text-black font-syncopate font-bold text-[10px] px-3 py-1 uppercase tracking-widest border-2 border-black z-20 shadow-[2px_2px_0px_rgba(0,0,0,1)]">
+                STRENGTH
+              </div>
+
+              {/* Smart Interaction Badge */}
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black text-white font-syncopate font-bold text-[10px] px-4 py-2 uppercase tracking-widest border-2 border-black z-20 whitespace-nowrap shadow-[4px_4px_0px_rgba(214,255,0,1)] group-hover:bg-[#D6FF00] group-hover:text-black transition-colors duration-300">
+                {flippedCards.amit ? "AFTER ↺ TAP TO REVERT" : "BEFORE ➔ TAP TO TRANSFORM"}
+              </div>
+            </div>
+            <div className="p-6 md:p-8 bg-white group-hover:bg-black group-hover:text-white transition-colors duration-300 flex flex-col flex-grow">
+              <Quote className="w-6 h-6 text-[#D6FF00] mb-4" />
+              <p className="text-sm font-medium mb-6 flex-grow">"The energy Neeraj brings to the floor is unmatched. I've never felt stronger, more disciplined, or more confident in my life."</p>
+              <div className="mt-auto border-t-2 border-black/10 group-hover:border-white/10 pt-4">
+                <div className="flex justify-between font-syncopate font-bold uppercase text-xs mb-2">
+                  <span className="text-gray-400 group-hover:text-gray-500">Total</span>
+                  <span className="text-[#D6FF00]">Recomp</span>
+                </div>
+                <h3 className="font-bold uppercase tracking-widest text-sm">— Amit Jhagta</h3>
+                <p className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mt-1">Jubbal, Shimla</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Rishi */}
+          <div className="group cursor-pointer flex flex-col" onClick={() => toggleFlip('rishi')}>
+            <div className="h-[350px] md:h-[400px] border-b-4 border-black relative bg-black overflow-hidden">
+              {/* Before Image */}
+              <img src="/rishi-before.jpeg" alt="Rishi Before" className={`absolute inset-0 w-full h-full object-cover object-center grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105 ${flippedCards.rishi ? 'opacity-0' : 'opacity-100 z-10'}`} />
+              {/* After Image */}
+              <img src="/rishi-after1.jpeg" alt="Rishi After" className={`absolute inset-0 w-full h-full object-cover object-top grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105 ${flippedCards.rishi ? 'opacity-100 z-10' : 'opacity-0'}`} />
+              
+              <div className="absolute top-4 right-4 bg-[#D6FF00] text-black font-syncopate font-bold text-[10px] px-3 py-1 uppercase tracking-widest border-2 border-black z-20 shadow-[2px_2px_0px_rgba(0,0,0,1)]">
+                +12 KG
+              </div>
+
+              {/* Smart Interaction Badge */}
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black text-white font-syncopate font-bold text-[10px] px-4 py-2 uppercase tracking-widest border-2 border-black z-20 whitespace-nowrap shadow-[4px_4px_0px_rgba(214,255,0,1)] group-hover:bg-[#D6FF00] group-hover:text-black transition-colors duration-300">
+                {flippedCards.rishi ? "AFTER ↺ TAP TO REVERT" : "BEFORE ➔ TAP TO TRANSFORM"}
+              </div>
+            </div>
+            <div className="p-6 md:p-8 bg-white group-hover:bg-black group-hover:text-white transition-colors duration-300 flex flex-col flex-grow">
+              <Quote className="w-6 h-6 text-[#D6FF00] mb-4" />
+              <p className="text-sm font-medium mb-6 flex-grow">"Started at 58kg struggling to put on size. Neeraj guided my nutrition and lifting, and now I'm a solid 70kg. Real results."</p>
+              <div className="mt-auto border-t-2 border-black/10 group-hover:border-white/10 pt-4">
+                <div className="flex justify-between font-syncopate font-bold uppercase text-xs mb-2">
+                  <span className="text-gray-400 group-hover:text-gray-500">Before: 58kg</span>
+                  <span className="text-[#D6FF00]">Now: 70kg</span>
+                </div>
+                <h3 className="font-bold uppercase tracking-widest text-sm">— Rishi Sethi</h3>
+                <p className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mt-1">Rohtan, Jubbal, Shimla</p>
+              </div>
             </div>
           </div>
         </div>
