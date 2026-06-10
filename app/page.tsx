@@ -483,7 +483,7 @@ export default function Home() {
               {/* Before Image */}
               <img src="/rishi-before.jpeg" alt="Rishi Before" className={`absolute inset-0 w-full h-full object-cover object-center grayscale-0 md:grayscale transition-all duration-700 md:group-hover:grayscale-0 ${flippedCards.rishi ? 'opacity-0' : 'opacity-100 z-10'}`} />
               {/* After Image */}
-              <img src="/rishi-after.jpeg" alt="Rishi After" className={`absolute inset-0 w-full h-full object-cover object-center grayscale-0 md:grayscale transition-all duration-700 md:group-hover:grayscale-0 ${flippedCards.rishi ? 'opacity-100 z-10' : 'opacity-0'}`} />
+              <img src="/rishi-after1.jpeg" alt="Rishi After" className={`absolute inset-0 w-full h-full object-cover object-center grayscale-0 md:grayscale transition-all duration-700 md:group-hover:grayscale-0 ${flippedCards.rishi ? 'opacity-100 z-10' : 'opacity-0'}`} />
               
               {/* Stat Badge */}
               <div className="absolute top-4 right-4 bg-[#D6FF00] text-black font-syncopate font-bold text-[10px] px-3 py-1 uppercase tracking-widest border-2 border-black z-20 shadow-[2px_2px_0px_rgba(0,0,0,1)]">
